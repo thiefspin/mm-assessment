@@ -42,7 +42,7 @@ lazy val root = (project in file("."))
     mainClass in(Compile, run) := Some("com.thiefspin.Server"),
     parallelExecution in Test := false,
     javaOptions in Universal ++= Seq("-Dpidfile.path=/dev/null"),
-    dockerBaseImage := "openjdk:8",
+    dockerBaseImage := "openjdk:11-jre-slim",
     dockerCommands ++= Seq(
       ExecCmd("RUN",
         "chmod", "u+x",
