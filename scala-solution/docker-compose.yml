@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  pgdb:
+    image: postgres:12-alpine
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: testing
+    volumes:
+      - ./sql/schema.sql:/docker-entrypoint-initdb.d/1-schema.sql
+
+  adminer:
+    image: adminer
+    ports:
+      - 8888:8080
